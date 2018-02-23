@@ -38,11 +38,11 @@ class DB{
   {
     $sql="INSERT into tblusers(username, userpassword, useremail, usercontact, userregdate) VALUES (:username, :userpassword, :useremail, :usercontact, :userregdate)";
     $stmt=$this->db_con->prepare($sql);
-    $stmt->bindParams(":username", $username);
-    $stmt->bindParams(":userpassword", $userpassword);
-    $stmt->bindParams(":useremail", $useremail);
-    $stmt->bindParams(":usercontact", $usercontact);
-    $stmt->bindParams(":userregdate", $userregdate);
+    $stmt->bindParam(":username", $username);
+    $stmt->bindParam(":userpassword", $userpassword);
+    $stmt->bindParam(":useremail", $useremail);
+    $stmt->bindParam(":usercontact", $usercontact);
+    $stmt->bindParam(":userregdate", $userregdate);
     $stmt->execute();
     $newId=$this->db_con->lastInsertId();
     return $newId;
